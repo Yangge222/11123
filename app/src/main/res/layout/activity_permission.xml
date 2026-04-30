@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:background="#0D1B0A"
+    android:padding="24dp">
+
+    <!-- Logo区域 -->
+    <LinearLayout
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:gravity="center"
+        android:background="@drawable/circle_green_bg"
+        android:layout_marginBottom="20dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="⚔"
+            android:textSize="52sp"
+            android:textColor="#76FF03" />
+    </LinearLayout>
+
+    <!-- 应用名 -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="MC 辅助工具"
+        android:textSize="26sp"
+        android:textStyle="bold"
+        android:textColor="#76FF03"
+        android:layout_marginBottom="6dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Minecraft Floating Helper v1.0"
+        android:textSize="13sp"
+        android:textColor="#66AAFFAA"
+        android:layout_marginBottom="32dp"/>
+
+    <!-- 权限状态卡片 -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@drawable/card_dark_bg"
+        android:padding="16dp"
+        android:layout_marginBottom="24dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="🔒 所需权限"
+            android:textColor="#FFD600"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="10dp"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginBottom="8dp">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="显示在其他应用上层（悬浮窗）"
+                android:textColor="#CCCCCC"
+                android:textSize="13sp"/>
+
+            <TextView
+                android:id="@+id/tv_status"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="未授予"
+                android:textSize="13sp"
+                android:textColor="#F44336"/>
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="此权限用于在游戏上方显示辅助面板，不会读取游戏数据。"
+            android:textColor="#888888"
+            android:textSize="11sp"
+            android:lineSpacingExtra="2dp"/>
+    </LinearLayout>
+
+    <!-- 授权按钮 -->
+    <Button
+        android:id="@+id/btn_grant"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:text="前往授予悬浮窗权限"
+        android:textColor="#0D1B0A"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        android:background="@drawable/btn_green_bg"
+        android:layout_marginBottom="12dp"/>
+
+    <!-- 启动按钮 -->
+    <Button
+        android:id="@+id/btn_start"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:text="▶ 启动悬浮球"
+        android:textColor="#FFFFFF"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        android:background="@drawable/btn_dark_green_bg"
+        android:enabled="false"
+        android:alpha="0.5"
+        android:layout_marginBottom="20dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="启动后可最小化此页面，悬浮球会显示在其他应用上方"
+        android:textColor="#446644"
+        android:textSize="11sp"
+        android:gravity="center"
+        android:textAlignment="center"/>
+
+</LinearLayout>
