@@ -19,9 +19,7 @@ jobs:
           distribution: 'temurin'
 
       - name: Setup Gradle
-        uses: gradle/gradle-build-action@v3
-        with:
-          gradle-version: 8.4
+        uses: gradle/actions/setup-gradle@v4
 
       - name: Build Debug APK
         run: |
@@ -32,13 +30,4 @@ jobs:
         with:
           name: MCHelper-debug-apk
           path: app/build/outputs/apk/debug/app-debug.apk
-          retention-days: 7
-
-      - name: Upload to Release
-        if: github.ref == 'refs/heads/main'
-        uses: softprops/action-gh-release@v2
-        with:
-          files: app/build/outputs/apk/debug/app-debug.apk
-          body: "MC Helper Android APK - Auto Built"
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          retention-days: 30
