@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#1A1A1A"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <!-- 彩虹渐变标题 -->
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:background="@drawable/rainbow_gradient"
+        android:gravity="center"
+        android:text="草方块盒子"
+        android:textColor="#FFFFFF"
+        android:textSize="24sp"
+        android:textStyle="bold" />
+
+    <!-- 四个分类标签 -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/tab_battle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/tab_selected"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="战斗类"
+            android:textColor="#FFFFFF"
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/tab_world"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_weight="1"
+            android:background="@drawable/tab_unselected"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="世界类"
+            android:textColor="#FFFFFF"
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/tab_render"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_weight="1"
+            android:background="@drawable/tab_unselected"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="渲染类"
+            android:textColor="#FFFFFF"
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/tab_other"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_weight="1"
+            android:background="@drawable/tab_unselected"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="其他类"
+            android:textColor="#FFFFFF"
+            android:textSize="12sp" />
+    </LinearLayout>
+
+    <!-- 功能列表 -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="16dp"
+        android:layout_weight="1">
+
+        <LinearLayout
+            android:id="@+id/features_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!-- 战斗类功能 -->
+            <LinearLayout
+                android:id="@+id/battle_features"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <include
+                    android:id="@+id/feature_autopunch"
+                    layout="@layout/item_feature" />
+
+                <include
+                    android:id="@+id/feature_crit"
+                    layout="@layout/item_feature" />
+
+                <include
+                    android:id="@+id/feature_autoblock"
+                    layout="@layout/item_feature" />
+
+                <include
+                    android:id="@+id/feature_range"
+                    layout="@layout/item_feature" />
+            </LinearLayout>
+
+            <!-- 世界类功能 -->
+            <LinearLayout
+                android:id="@+id/world_features"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <include
+                    android:id="@+id/feature_fly"
+                    layout="@layout/item_feature" />
+
+                <include
+                    android:id="@+id/feature_noclip"
+                    layout="@layout/item_feature" />
+
+                <include
+                    android:id="@+id/feature_speed"
+                    layout="@layout/item_feature" />
+            </LinearLayout>
+
+            <!-- 渲染类功能 -->
+            <LinearLayout
+                android:id="@+id/render_features"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <include
+                    android:id="@+id/feature_esp"
+                    layout="@layout/item_feature" />
+
+                <include
+                    android:id="@+id/feature_xray"
+                    layout="@layout/item_feature" />
+
+                <include
+                    android:id="@+id/feature_nametag"
+                    layout="@layout/item_feature" />
+            </LinearLayout>
+
+            <!-- 其他类功能 -->
+            <LinearLayout
+                android:id="@+id/other_features"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <include
+                    android:id="@+id/feature_inventory"
+                    layout="@layout/item_feature" />
+
+                <include
+                    android:id="@+id/feature_potion"
+                    layout="@layout/item_feature" />
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>
