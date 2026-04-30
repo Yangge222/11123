@@ -21,10 +21,25 @@ jobs:
         java-version: '17'
         distribution: 'temurin'
         
+    - name: Check files
+      run: |
+        echo "=== Files in repo ==="
+        ls -la
+        echo ""
+        echo "=== Gradle wrapper ==="
+        ls -la gradlew*
+        echo ""
+        echo "=== gradle-wrapper.jar ==="
+        ls -la gradle/wrapper/
+        
     - name: Build with Gradle
-      run: chmod +x gradlew && ./gradlew assembleDebug
-      
+      run: |
+        chmod +x gradlew
+        ./gradlew assembleDebug --stacktrace
+      shell: bash
+        
     - name: Upload APK
+      if: success()
       uses: actions/upload-artifact@v4
       with:
         name: app-debug
