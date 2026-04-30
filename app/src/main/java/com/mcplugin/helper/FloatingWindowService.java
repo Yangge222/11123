@@ -93,10 +93,14 @@ public class FloatingWindowService extends Service {
         windowManager.addView(floatBallView, ballParams);
     }
 
-    private android.graphics.drawable.GradientDrawable makeBallDrawable() {
+    private android.graphics.drawable.Drawable makeBallDrawable() {
+        // 优先使用自定义图标
+        android.graphics.drawable.Drawable d = getResources().getDrawable(R.drawable.float_ball);
+        if (d != null) return d;
+        // 兜底绿色圆形
         android.graphics.drawable.GradientDrawable gd = new android.graphics.drawable.GradientDrawable();
         gd.setShape(android.graphics.drawable.GradientDrawable.OVAL);
-        gd.setColor(0xFF1B5E20); // 深绿色，MC风格
+        gd.setColor(0xFF1B5E20);
         gd.setStroke(dp2px(3), 0xFF76FF03);
         return gd;
     }
