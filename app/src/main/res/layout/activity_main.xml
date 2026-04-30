@@ -6,173 +6,192 @@
     android:orientation="vertical"
     android:padding="16dp">
 
-    <!-- 彩虹渐变标题 -->
-    <TextView
-        android:id="@+id/title"
-        android:layout_width="match_parent"
-        android:layout_height="56dp"
-        android:background="@drawable/rainbow_gradient"
-        android:gravity="center"
-        android:text="草方块盒子"
-        android:textColor="#FFFFFF"
-        android:textSize="24sp"
-        android:textStyle="bold" />
-
-    <!-- 四个分类标签 -->
+    <!-- 权限申请容器 -->
     <LinearLayout
+        android:id="@+id/permission_container"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_height="match_parent"
         android:gravity="center"
-        android:orientation="horizontal">
+        android:orientation="vertical"
+        android:visibility="gone">
 
         <TextView
-            android:id="@+id/tab_battle"
-            android:layout_width="0dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:background="@drawable/tab_selected"
-            android:gravity="center"
-            android:padding="10dp"
-            android:text="战斗类"
+            android:text="需要悬浮窗权限才能使用"
             android:textColor="#FFFFFF"
-            android:textSize="12sp" />
+            android:textSize="18sp"
+            android:gravity="center" />
 
         <TextView
-            android:id="@+id/tab_world"
-            android:layout_width="0dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_weight="1"
-            android:background="@drawable/tab_unselected"
-            android:gravity="center"
-            android:padding="10dp"
-            android:text="世界类"
-            android:textColor="#FFFFFF"
-            android:textSize="12sp" />
+            android:layout_marginTop="16dp"
+            android:text="点击下方按钮授予权限"
+            android:textColor="#AAAAAA"
+            android:textSize="14sp"
+            android:gravity="center" />
 
-        <TextView
-            android:id="@+id/tab_render"
-            android:layout_width="0dp"
+        <Button
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_weight="1"
-            android:background="@drawable/tab_unselected"
-            android:gravity="center"
-            android:padding="10dp"
-            android:text="渲染类"
-            android:textColor="#FFFFFF"
-            android:textSize="12sp" />
-
-        <TextView
-            android:id="@+id/tab_other"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_weight="1"
-            android:background="@drawable/tab_unselected"
-            android:gravity="center"
-            android:padding="10dp"
-            android:text="其他类"
-            android:textColor="#FFFFFF"
-            android:textSize="12sp" />
+            android:layout_marginTop="24dp"
+            android:backgroundTint="#4CAF50"
+            android:onClick="requestOverlayPermission"
+            android:text="授予悬浮窗权限" />
     </LinearLayout>
 
-    <!-- 功能列表 -->
-    <ScrollView
+    <!-- 主内容容器 -->
+    <LinearLayout
+        android:id="@+id/content_container"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_marginTop="16dp"
-        android:layout_weight="1">
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-        <LinearLayout
-            android:id="@+id/features_container"
+        <!-- 彩虹渐变标题 -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:background="@drawable/rainbow_gradient"
+            android:gravity="center"
+            android:text="草方块盒子"
+            android:textColor="#FFFFFF"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+
+        <!-- 悬浮窗提示 -->
+        <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:layout_marginTop="8dp"
+            android:gravity="center"
+            android:text="悬浮球已启动，点击返回键最小化"
+            android:textColor="#4CAF50"
+            android:textSize="12sp" />
 
-            <!-- 战斗类功能 -->
+        <!-- 四个分类标签 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/tab_battle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/tab_selected"
+                android:gravity="center"
+                android:padding="10dp"
+                android:text="战斗类"
+                android:textColor="#FFFFFF"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/tab_world"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_weight="1"
+                android:background="@drawable/tab_unselected"
+                android:gravity="center"
+                android:padding="10dp"
+                android:text="世界类"
+                android:textColor="#FFFFFF"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/tab_render"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_weight="1"
+                android:background="@drawable/tab_unselected"
+                android:gravity="center"
+                android:padding="10dp"
+                android:text="渲染类"
+                android:textColor="#FFFFFF"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/tab_other"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_weight="1"
+                android:background="@drawable/tab_unselected"
+                android:gravity="center"
+                android:padding="10dp"
+                android:text="其他类"
+                android:textColor="#FFFFFF"
+                android:textSize="12sp" />
+        </LinearLayout>
+
+        <!-- 功能列表 -->
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="16dp"
+            android:layout_weight="1">
+
             <LinearLayout
-                android:id="@+id/battle_features"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
 
-                <include
-                    android:id="@+id/feature_autopunch"
-                    layout="@layout/item_feature" />
+                <!-- 战斗类功能 -->
+                <LinearLayout
+                    android:id="@+id/battle_features"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
 
-                <include
-                    android:id="@+id/feature_crit"
-                    layout="@layout/item_feature" />
+                    <include android:id="@+id/feature_autopunch" layout="@layout/item_feature" />
+                    <include android:id="@+id/feature_crit" layout="@layout/item_feature" />
+                    <include android:id="@+id/feature_autoblock" layout="@layout/item_feature" />
+                    <include android:id="@+id/feature_range" layout="@layout/item_feature" />
+                </LinearLayout>
 
-                <include
-                    android:id="@+id/feature_autoblock"
-                    layout="@layout/item_feature" />
+                <!-- 世界类功能 -->
+                <LinearLayout
+                    android:id="@+id/world_features"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:visibility="gone">
 
-                <include
-                    android:id="@+id/feature_range"
-                    layout="@layout/item_feature" />
+                    <include android:id="@+id/feature_fly" layout="@layout/item_feature" />
+                    <include android:id="@+id/feature_noclip" layout="@layout/item_feature" />
+                    <include android:id="@+id/feature_speed" layout="@layout/item_feature" />
+                </LinearLayout>
+
+                <!-- 渲染类功能 -->
+                <LinearLayout
+                    android:id="@+id/render_features"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:visibility="gone">
+
+                    <include android:id="@+id/feature_esp" layout="@layout/item_feature" />
+                    <include android:id="@+id/feature_xray" layout="@layout/item_feature" />
+                    <include android:id="@+id/feature_nametag" layout="@layout/item_feature" />
+                </LinearLayout>
+
+                <!-- 其他类功能 -->
+                <LinearLayout
+                    android:id="@+id/other_features"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:visibility="gone">
+
+                    <include android:id="@+id/feature_inventory" layout="@layout/item_feature" />
+                    <include android:id="@+id/feature_potion" layout="@layout/item_feature" />
+                </LinearLayout>
             </LinearLayout>
-
-            <!-- 世界类功能 -->
-            <LinearLayout
-                android:id="@+id/world_features"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:visibility="gone">
-
-                <include
-                    android:id="@+id/feature_fly"
-                    layout="@layout/item_feature" />
-
-                <include
-                    android:id="@+id/feature_noclip"
-                    layout="@layout/item_feature" />
-
-                <include
-                    android:id="@+id/feature_speed"
-                    layout="@layout/item_feature" />
-            </LinearLayout>
-
-            <!-- 渲染类功能 -->
-            <LinearLayout
-                android:id="@+id/render_features"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:visibility="gone">
-
-                <include
-                    android:id="@+id/feature_esp"
-                    layout="@layout/item_feature" />
-
-                <include
-                    android:id="@+id/feature_xray"
-                    layout="@layout/item_feature" />
-
-                <include
-                    android:id="@+id/feature_nametag"
-                    layout="@layout/item_feature" />
-            </LinearLayout>
-
-            <!-- 其他类功能 -->
-            <LinearLayout
-                android:id="@+id/other_features"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:visibility="gone">
-
-                <include
-                    android:id="@+id/feature_inventory"
-                    layout="@layout/item_feature" />
-
-                <include
-                    android:id="@+id/feature_potion"
-                    layout="@layout/item_feature" />
-            </LinearLayout>
-        </LinearLayout>
-    </ScrollView>
+        </ScrollView>
+    </LinearLayout>
 </LinearLayout>
