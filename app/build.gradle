@@ -3,15 +3,15 @@ plugins {
 }
 
 android {
-    namespace 'com.mcplugin.helper'
+    namespace 'com.caofangkuaihezi.app'
     compileSdk 34
 
     defaultConfig {
-        applicationId "com.mcplugin.helper"
+        applicationId "com.caofangkuaihezi.app"
         minSdk 23
         targetSdk 34
         versionCode 1
-        versionName "1.0.0"
+        versionName "2.3.7"
     }
 
     buildTypes {
